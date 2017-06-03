@@ -5,7 +5,11 @@ var camera;
 function init(){
     scene = new THREE.Scene();
     createFigure();
+<<<<<<< HEAD
     createEnviroment();
+=======
+    createFigureMaterial();
+>>>>>>> 09b3257bbce615c0d07fc6cda507881125f5bd41
     createRenderer();
     createCamera();
     createLight();
@@ -41,6 +45,11 @@ function createCamera(){
     camera.lookAt(scene.position);
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 09b3257bbce615c0d07fc6cda507881125f5bd41
 
 function createLight(){
     //var spotLight = new THREE.SpotLight(0xffffff);
@@ -61,7 +70,10 @@ function createLight(){
 }
 
 function createFigureMaterial(){
+<<<<<<< HEAD
 
+=======
+>>>>>>> 09b3257bbce615c0d07fc6cda507881125f5bd41
     var earthTexture = new THREE.Texture();
     var loader = new THREE.ImageLoader();
     loader.load('assets/lee_diffuse.jpg' , function(image) {
@@ -92,6 +104,7 @@ function createFigureMaterial(){
 }
 
 
+<<<<<<< HEAD
 
 
 function createEnviroment(){
@@ -102,6 +115,24 @@ function createEnviroment(){
     var envMesh = new THREE.Mesh(envGeometry, envMaterial);
     scene.add(envMesh);
 }
+=======
+
+
+
+function createNubesMaterial(){
+    var earthTexture = new THREE.Texture();
+    var loader = new THREE.ImageLoader();
+    loader.load('assets/fair_clouds_1k.png' , function(image) {
+        earthTexture.image = image;
+        earthTexture.needsUpdate = true;
+    });
+    var earthMaterial = new THREE.MeshBasicMaterial();
+    earthMaterial.map = earthTexture;
+    return earthMaterial;
+}
+
+
+>>>>>>> 09b3257bbce615c0d07fc6cda507881125f5bd41
 
 
 
@@ -110,6 +141,7 @@ function createFigure(){
     var material = new THREE.MeshPhongMaterial();
     loader = new THREE.OBJLoader();
     loader.load('assets/lee.obj', function(object){
+<<<<<<< HEAD
         object.traverse(function (child) {
             if(child instanceof  THREE.Mesh){
                 child.material = createFigureMaterial();
@@ -119,6 +151,17 @@ function createFigure(){
             }
         });
         scene.add(object);
+=======
+       object.traverse(function (object) {
+           if(child instanceof  THREE.Mesh){
+               child.material = material;
+               child.receiveShadow = true;
+               child.castShadow = true;
+               child.name = "model";
+           }
+       });
+       scene.add(object);
+>>>>>>> 09b3257bbce615c0d07fc6cda507881125f5bd41
     });
 }
 
@@ -127,4 +170,8 @@ function createFigure(){
 
 
 
+<<<<<<< HEAD
 init();
+=======
+init();
+>>>>>>> 09b3257bbce615c0d07fc6cda507881125f5bd41
